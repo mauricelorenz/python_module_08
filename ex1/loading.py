@@ -4,9 +4,9 @@ import sys
 import importlib
 import importlib.metadata
 try:
-    import pandas
-    import matplotlib
-    import numpy
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import numpy as np
 except ImportError:
     to_import = ["pandas", "matplotlib", "numpy"]
     not_available = []
@@ -33,26 +33,37 @@ def check_dependencies() -> None:
           "Calculation ready")
 
 
-def analyze_matrix_data() -> None:
+def analyze_matrix_data() -> np.ndarray:
     print("\nAnalyzing Matrix data...")
+    matrix_data = np.random.normal(loc=0, scale=1, size=1000)
+    print(matrix_data)
+    print()
+    return matrix_data
 
 
-def process_data_points() -> None:
+def process_data_points(matrix_data: np.ndarray) -> pd.Series:
     print("Processing 1000 data points...")
+    matrix_series = pd.Series(matrix_data)
+    print(matrix_series.describe())
+    print()
+    return matrix_series
 
 
-def generate_visualization() -> None:
+def generate_visualization(matrix_series: pd.Series) -> None:
     print("Generating visualization...")
+    plt.hist(matrix_series)
+    filename = "matrix_analysis.png"
+    plt.savefig(filename)
+    print("\nAnalysis complete!")
+    print(f"Results saved to: {filename}")
 
 
 def main() -> None:
     print("\nLOADING STATUS: Loading programs...")
     check_dependencies()
-    analyze_matrix_data()
-    process_data_points()
-    generate_visualization()
-    print("\nAnalysis complete!")
-    print("Results saved to: matrix_analysis.png")
+    matrix_data = analyze_matrix_data()
+    matrix_series = process_data_points(matrix_data)
+    generate_visualization(matrix_series)
 
 
 if __name__ == "__main__":
