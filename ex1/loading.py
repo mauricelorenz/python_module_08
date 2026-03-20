@@ -20,7 +20,7 @@ except ImportError:
     print("pip: Run pip install -r requirements.txt && python3 "
           "loading.py\n"
           "Poetry: Run poetry install && poetry run python loading.py")
-    sys.exit()
+    sys.exit(1)
 
 
 def check_dependencies() -> None:
