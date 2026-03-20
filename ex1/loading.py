@@ -25,11 +25,11 @@ except ImportError:
 
 def check_dependencies() -> None:
     print("\nChecking dependencies:")
-    print(f"[OK] pandas ({importlib.metadata.version("pandas")}) - "
+    print(f"[OK] pandas ({importlib.metadata.version('pandas')}) - "
           "Data manipulation ready")
-    print(f"[OK] matplotlib ({importlib.metadata.version("matplotlib")}) - "
+    print(f"[OK] matplotlib ({importlib.metadata.version('matplotlib')}) - "
           "Visualization ready")
-    print(f"[OK] numpy ({importlib.metadata.version("numpy")}) - "
+    print(f"[OK] numpy ({importlib.metadata.version('numpy')}) - "
           "Calculation ready")
 
 

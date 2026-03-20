@@ -14,13 +14,13 @@ def main() -> None:
         print("Error: .env missing!")
         sys.exit(1)
     print("\nConfiguration loaded:")
-    print(f"Mode: {os.getenv("MATRIX_MODE")}")
+    print(f"Mode: {os.getenv('MATRIX_MODE')}")
     db = ("Connected to local instance"
           if os.getenv("DATABASE_URL") else "URL missing")
     print(f"Database: {db}")
     api = "Authenticated" if os.getenv("API_KEY") else "Key missing"
     print(f"API Access: {api}")
-    print(f"Log Level: {os.getenv("LOG_LEVEL")}")
+    print(f"Log Level: {os.getenv('LOG_LEVEL')}")
     zion = "Online" if os.getenv("ZION_ENDPOINT") else "Offline"
     print(f"Zion Network: {zion}")
     print("\nEnvironment security check:")
